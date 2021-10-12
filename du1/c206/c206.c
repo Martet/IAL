@@ -112,7 +112,7 @@ void DLL_Dispose( DLList *list ) {
  * @param data Hodnota k vložení na začátek seznamu
  */
 void DLL_InsertFirst( DLList *list, int data ) {
-    DLLElementPtr new = malloc(sizeof(DLList));
+    DLLElementPtr new = malloc(sizeof(struct DLLElement));
     if(!new){
         DLL_Error();
         return;
@@ -218,7 +218,9 @@ void DLL_DeleteFirst( DLList *list ) {
     if(!list->firstElement) return;
     if(list->activeElement == list->firstElement)
         list->activeElement = NULL;
-    
+    if(list->lastElement == list->firstElement)
+        list->lastElement = NULL;
+
     DLLElementPtr tmp = list->firstElement;
     if(list->firstElement->nextElement)
         list->firstElement->nextElement->previousElement = NULL;
@@ -237,6 +239,8 @@ void DLL_DeleteLast( DLList *list ) {
     if(!list->firstElement) return;
     if(list->activeElement == list->lastElement)
         list->activeElement = NULL;
+    if(list->firstElement == list->lastElement)
+        list->firstElement = NULL;
     
     DLLElementPtr tmp = list->lastElement;
     if(list->lastElement->previousElement)
