@@ -114,7 +114,7 @@ void doOperation( Stack *stack, char c, char *postfixExpression, unsigned *postf
             while(flag){
                 if(!Stack_IsEmpty(stack)) 
                     Stack_Top(stack, &top);
-                if(Stack_IsEmpty(stack) || top == ')' || ((c == '*' || c == '/') && (top == '+' || top == '-'))){
+                if(Stack_IsEmpty(stack) || top == '(' || ((c == '*' || c == '/') && (top == '+' || top == '-'))){
                     Stack_Push(stack, c);
                     flag = 0;
                 }
@@ -193,9 +193,10 @@ char *infix2postfix( const char *infixExpression ) {
         char top;
         Stack_Top(&s, &top);
         Stack_Pop(&s);
-        postExpr[readPos++] = top;
+        postExpr[outPos++] = top;
     }
-    postExpr[readPos] = '=';
+    postExpr[outPos++] = '=';
+    postExpr[outPos] = 0;
 	return postExpr;
 }
 
