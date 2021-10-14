@@ -83,7 +83,7 @@ void untilLeftPar( Stack *stack, char *postfixExpression, unsigned *postfixExpre
  * @param postfixExpressionLength Ukazatel na aktuální délku výsledného postfixového výrazu
  */
 void doOperation( Stack *stack, char c, char *postfixExpression, unsigned *postfixExpressionLength ) {
-    char top, flag;
+    char top;
 	switch (c){
         case '(':
             Stack_Push(stack, c);
@@ -92,31 +92,12 @@ void doOperation( Stack *stack, char c, char *postfixExpression, unsigned *postf
             untilLeftPar(stack, postfixExpression, postfixExpressionLength);
             break;
         case '+': case '-': case '*': case '/':
-            /*flag = 1;
-            while(flag){
-                if(Stack_IsEmpty(stack))
-                Stack_Push(stack, c);
-                else{
-                    char top;
-                    Stack_Top(stack, &top);
-                    if(top == '(' || ((c == '*' || c == '/') && (top == '+' || top == '-'))){
-                        Stack_Push(stack, c);
-                        flag = 0;
-                    }
-                    else{
-                        postfixExpression[(*postfixExpressionLength)++] = c;
-                    }
-                }
-            }
-
-            break;*/
-            flag = 1;
-            while(flag){
+            while(1){
                 if(!Stack_IsEmpty(stack)) 
                     Stack_Top(stack, &top);
                 if(Stack_IsEmpty(stack) || top == '(' || ((c == '*' || c == '/') && (top == '+' || top == '-'))){
                     Stack_Push(stack, c);
-                    flag = 0;
+                    break;
                 }
                 else{
                     postfixExpression[(*postfixExpressionLength)++] = top;
