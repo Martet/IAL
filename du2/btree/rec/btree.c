@@ -18,6 +18,7 @@
  * možné toto detegovať vo funkcii.
  */
 void bst_init(bst_node_t **tree) {
+  *tree = NULL;
 }
 
 /*
@@ -30,7 +31,16 @@ void bst_init(bst_node_t **tree) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 bool bst_search(bst_node_t *tree, char key, int *value) {
-  return false;
+  if(!tree)
+    return false;
+  if(tree->key == key){
+    *value = tree->value;
+    return true;
+  }
+  else if(tree->key > key)
+    return bst_search(tree->left, key, value);
+  else 
+    return bst_search(tree->right, key, value);
 }
 
 /*
@@ -45,6 +55,20 @@ bool bst_search(bst_node_t *tree, char key, int *value) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_insert(bst_node_t **tree, char key, int value) {
+  if(!*tree){
+    *tree = malloc(sizeof(bst_node_t));
+    (*tree)->key = key;
+    (*tree)->value = value;
+    (*tree)->left = NULL;
+    (*tree)->right = NULL;
+    return;
+  }
+  if((*tree)->key == key)
+    (*tree)->value = value;
+  else if((*tree)->key > key)
+    bst_insert(&(*tree)->left, key, value);
+  else 
+    bst_insert(&(*tree)->right, key, value);
 }
 
 /*
@@ -61,6 +85,12 @@ void bst_insert(bst_node_t **tree, char key, int value) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_replace_by_rightmost(bst_node_t *target, bst_node_t **tree) {
+  if(!(*tree)->right){
+    target->key = (*tree)->key;
+    target->value = (*tree)->value;
+  }
+  else 
+    bst_replace_by_rightmost(target, &(*tree)->right);
 }
 
 /*
@@ -76,6 +106,28 @@ void bst_replace_by_rightmost(bst_node_t *target, bst_node_t **tree) {
  * použitia vlastných pomocných funkcií.
  */
 void bst_delete(bst_node_t **tree, char key) {
+  if(!*tree)
+    return;
+  if((*tree)->key == key){
+    if(!(*tree)->right && !(*tree)->left){
+      free(*tree);
+      *tree = NULL;
+    }
+    else if ((*tree)->right && (*tree)->left){
+      bst_node_t *node = *tree;
+      bst_replace_by_rightmost(node, &((*tree)->left)); 
+      bst_delete(&(*tree)->left, node->key);
+    }
+    else{
+      bst_node_t *node = *tree;
+      (*tree) = (*tree)->right && !(*tree)->left ? (*tree)->right : (*tree)->left;
+      free(node);
+    }
+  }
+  else if((*tree)->key > key)
+    bst_delete(&(*tree)->left, key);
+  else 
+    bst_delete(&(*tree)->right, key);
 }
 
 /*
@@ -88,6 +140,12 @@ void bst_delete(bst_node_t **tree, char key) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_dispose(bst_node_t **tree) {
+  if(!*tree)
+    return;
+  bst_dispose(&(*tree)->left);
+  bst_dispose(&(*tree)->right);
+  free(*tree);
+  *tree = NULL;
 }
 
 /*
@@ -98,6 +156,11 @@ void bst_dispose(bst_node_t **tree) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_preorder(bst_node_t *tree) {
+  if(!tree)
+    return;
+  bst_print_node(tree);
+  bst_preorder(tree->left);
+  bst_preorder(tree->right);
 }
 
 /*
@@ -108,6 +171,11 @@ void bst_preorder(bst_node_t *tree) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_inorder(bst_node_t *tree) {
+  if(!tree)
+    return;
+  bst_preorder(tree->left);
+  bst_print_node(tree);
+  bst_preorder(tree->right);
 }
 /*
  * Postorder prechod stromom.
@@ -117,4 +185,9 @@ void bst_inorder(bst_node_t *tree) {
  * Funkciu implementujte rekurzívne bez použitia vlastných pomocných funkcií.
  */
 void bst_postorder(bst_node_t *tree) {
+  if(!tree)
+    return;
+  bst_preorder(tree->left);
+  bst_preorder(tree->right);
+  bst_print_node(tree);
 }
