@@ -532,6 +532,8 @@ Binary tree structure:
      |
   +-[F,6]
      |
+     |  +-[E,5]
+     |  |
      +-[D,4]
         |
         |  +-[C,3]
@@ -725,7 +727,7 @@ Binary tree structure:
 
 
 [test_tree_inorder] Traverse the tree using inorder
-[A,3][B,2][C,4][C,4][D,1][E,5][E,5]
+[A,3][B,2][C,4][D,1][E,5]
 Binary tree structure:
 
      +-[E,5]

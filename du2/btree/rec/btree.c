@@ -173,9 +173,9 @@ void bst_preorder(bst_node_t *tree) {
 void bst_inorder(bst_node_t *tree) {
   if(!tree)
     return;
-  bst_preorder(tree->left);
+  bst_inorder(tree->left);
   bst_print_node(tree);
-  bst_preorder(tree->right);
+  bst_inorder(tree->right);
 }
 /*
  * Postorder prechod stromom.
@@ -187,7 +187,7 @@ void bst_inorder(bst_node_t *tree) {
 void bst_postorder(bst_node_t *tree) {
   if(!tree)
     return;
-  bst_preorder(tree->left);
-  bst_preorder(tree->right);
+  bst_postorder(tree->left);
+  bst_postorder(tree->right);
   bst_print_node(tree);
 }
