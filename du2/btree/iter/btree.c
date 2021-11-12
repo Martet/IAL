@@ -75,6 +75,7 @@ void bst_insert(bst_node_t **tree, char key, int value) {
   while(true){
     if(node->key == key){
       node->value = value;
+      free(new);
       return;
     }
     else if(node->key > key){
@@ -110,15 +111,15 @@ void bst_insert(bst_node_t **tree, char key, int value) {
  * Funkciu implementujte iteratívne bez použitia vlastných pomocných funkcií.
  */
 void bst_replace_by_rightmost(bst_node_t *target, bst_node_t **tree) {
-  bst_node_t *node = *tree, *last = *tree;
+  bst_node_t *node = (*tree)->right, *last = *tree;
   while(node->right){
     last = node;
     node = node->right;
   }
   target->key = node->key;
   target->value = node->value;
+  last->right = node->left;
   free(node);
-  last->right = NULL;
 }
 
 /*
@@ -185,10 +186,10 @@ void bst_dispose(bst_node_t **tree) {
   while(!stack_bst_empty(&s)){
     node = stack_bst_pop(&s);
     if(node->right){
-      node = node->right;
-      while(node){
-        stack_bst_push(&s, node);
-        node = node->left;
+      bst_node_t *tmpNode = node->right;
+      while(tmpNode){
+        stack_bst_push(&s, tmpNode);
+        tmpNode = tmpNode->left;
       }
     }
     free(node);
@@ -266,7 +267,7 @@ void bst_inorder(bst_node_t *tree) {
   while(!stack_bst_empty(&s)){
     node = stack_bst_pop(&s);
     bst_print_node(node);
-    bst_leftmost_preorder(node->right, &s);
+    bst_leftmost_inorder(node->right, &s);
   }
 }
 
