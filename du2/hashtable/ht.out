@@ -93,16 +93,16 @@ Maximum hash collisions: 0
 0: (Ethereum,3208.67)
 1: 
 2: 
-3: (Dogecoin,0.22)(Avalanche,47.03)(Uniswap,21.68)
-4: (XRP,0.93)(Chainlink,21.90)(Terra,30.67)
+3: (Avalanche,47.03)(Uniswap,21.68)(Dogecoin,0.22)
+4: (Chainlink,21.90)(Terra,30.67)(XRP,0.93)
 5: (Litecoin,156.87)
 6: 
 7: 
 8: (Cardano,1.82)
-9: (Binance Coin,409.15)(Solana,134.50)
+9: (Solana,134.50)(Binance Coin,409.15)
 10: (Tether,0.86)
 11: (Bitcoin,53247.71)
-12: (Polkadot,34.99)(USD Coin,0.86)
+12: (USD Coin,0.86)(Polkadot,34.99)
 ------------------------------------
 Total items in hash table: 15
 Maximum hash collisions: 2
@@ -114,16 +114,16 @@ Maximum hash collisions: 2
 0: (Ethereum,3208.67)
 1: 
 2: 
-3: (Dogecoin,0.22)(Avalanche,47.03)(Uniswap,21.68)
-4: (XRP,0.93)(Chainlink,21.90)(Terra,30.67)
+3: (Avalanche,47.03)(Uniswap,21.68)(Dogecoin,0.22)
+4: (Chainlink,21.90)(Terra,30.67)(XRP,0.93)
 5: (Litecoin,156.87)
 6: 
 7: 
 8: (Cardano,1.82)
-9: (Binance Coin,409.15)(Solana,134.50)
+9: (Solana,134.50)(Binance Coin,409.15)
 10: (Tether,0.86)
 11: (Bitcoin,53247.71)
-12: (Polkadot,34.99)(USD Coin,0.86)
+12: (USD Coin,0.86)(Polkadot,34.99)
 ------------------------------------
 Total items in hash table: 15
 Maximum hash collisions: 2
@@ -135,16 +135,16 @@ Maximum hash collisions: 2
 0: (Ethereum,12.34)
 1: 
 2: 
-3: (Dogecoin,0.22)(Avalanche,47.03)(Uniswap,21.68)
-4: (XRP,0.93)(Chainlink,21.90)(Terra,30.67)
+3: (Avalanche,47.03)(Uniswap,21.68)(Dogecoin,0.22)
+4: (Chainlink,21.90)(Terra,30.67)(XRP,0.93)
 5: (Litecoin,156.87)
 6: 
 7: 
 8: (Cardano,1.82)
-9: (Binance Coin,409.15)(Solana,134.50)
+9: (Solana,134.50)(Binance Coin,409.15)
 10: (Tether,0.86)
 11: (Bitcoin,53247.71)
-12: (Polkadot,34.99)(USD Coin,0.86)
+12: (USD Coin,0.86)(Polkadot,34.99)
 ------------------------------------
 Total items in hash table: 15
 Maximum hash collisions: 2
@@ -156,16 +156,16 @@ Maximum hash collisions: 2
 0: (Ethereum,3208.67)
 1: 
 2: 
-3: (Dogecoin,0.22)(Avalanche,47.03)(Uniswap,21.68)
-4: (XRP,0.93)(Chainlink,21.90)(Terra,30.67)
+3: (Avalanche,47.03)(Uniswap,21.68)(Dogecoin,0.22)
+4: (Chainlink,21.90)(Terra,30.67)(XRP,0.93)
 5: (Litecoin,156.87)
 6: 
 7: 
 8: (Cardano,1.82)
-9: (Binance Coin,409.15)(Solana,134.50)
+9: (Solana,134.50)(Binance Coin,409.15)
 10: (Tether,0.86)
 11: (Bitcoin,53247.71)
-12: (Polkadot,34.99)(USD Coin,0.86)
+12: (USD Coin,0.86)(Polkadot,34.99)
 ------------------------------------
 Total items in hash table: 15
 Maximum hash collisions: 2
@@ -177,16 +177,16 @@ Maximum hash collisions: 2
 0: (Ethereum,3208.67)
 1: 
 2: 
-3: (Dogecoin,0.22)(Avalanche,47.03)(Uniswap,21.68)
-4: (XRP,0.93)(Chainlink,21.90)
+3: (Avalanche,47.03)(Uniswap,21.68)(Dogecoin,0.22)
+4: (Chainlink,21.90)(XRP,0.93)
 5: (Litecoin,156.87)
 6: 
 7: 
 8: (Cardano,1.82)
-9: (Binance Coin,409.15)(Solana,134.50)
+9: (Solana,134.50)(Binance Coin,409.15)
 10: (Tether,0.86)
 11: (Bitcoin,53247.71)
-12: (Polkadot,34.99)(USD Coin,0.86)
+12: (USD Coin,0.86)(Polkadot,34.99)
 ------------------------------------
 Total items in hash table: 14
 Maximum hash collisions: 2

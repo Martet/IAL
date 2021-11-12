@@ -79,14 +79,8 @@ void ht_insert(ht_table_t *table, char *key, float value) {
     ht_item_t *new = malloc(sizeof(ht_item_t));
     new->value = value;
     new->key = key;
-    if((*table)[index]){
-      new->next = (*table)[index]->next;
-      (*table)[index]->next = new;
-    }
-    else{
-      new->next = NULL;
-      (*table)[index] = new;
-    }
+    new->next = (*table)[index];
+    (*table)[index] = new;
   }
 }
 
